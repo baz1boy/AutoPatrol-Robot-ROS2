@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="pabot">
+
+<!-- 主文件，用来加载各个部分 / main file, to include all different components -->
+
+<!-- 基础部分 / base -->
+<xacro:include filename="$(find patrol_robot_description)/urdf/pabot/base.urdf.xacro"/>
+<!-- 传感器部分 / sensors -->
+<xacro:include filename="$(find patrol_robot_description)/urdf/pabot/sensor/camera.urdf.xacro"/>
+<xacro:include filename="$(find patrol_robot_description)/urdf/pabot/sensor/imu.urdf.xacro"/>
+<xacro:include filename="$(find patrol_robot_description)/urdf/pabot/sensor/laser.urdf.xacro"/>
+<!-- 执行器部分 / actuators -->
+<xacro:include filename="$(find patrol_robot_description)/urdf/pabot/actuator/caster.urdf.xacro"/>
+<xacro:include filename="$(find patrol_robot_description)/urdf/pabot/actuator/wheel.urdf.xacro"/>
+<!-- 插件 / plugins -->
+<xacro:include filename="$(find patrol_robot_description)/urdf/pabot/plugins/gazebo_control_plugin.xacro"/>
+<xacro:include filename="$(find patrol_robot_description)/urdf/pabot/plugins/gazebo_sensor_plugin.xacro"/>
+<xacro:include filename="$(find patrol_robot_description)/urdf/pabot/plugins/pabot_ros2_control.xacro"/>
+
+<!-- 修改参数值 / Parameters Config-->
+<xacro:base_xacro length="0.12" radius="0.10" />
+
+<xacro:camera_xacro xyz="0.10 0.0 0.075"/>
+<xacro:imu_xacro xyz="0.0 0.0 0.02" />
+<xacro:laser_xacro xyz="0.0 0.0 0.10"/>
+
+<xacro:caster_xacro caster_name="front_caster" xyz="0.08 0.0 -0.076"/>
+<xacro:caster_xacro caster_name="back_wheel" xyz="-0.08 0.0 -0.076"/>
+<xacro:wheel_xacro wheel_name="left_wheel" xyz="0 0.10 -0.06"/>
+<xacro:wheel_xacro wheel_name="right_wheel" xyz="0 -0.10 -0.06"/>
+
+<!-- 不用gazebo的差速控制而是用ros2_control控制 -->
+<!-- <xacro:gazebo_control_plugin /> -->
+<xacro:gazebo_sensor_plugin />
+<xacro:pabot_ros2_control />
+
+</robot>

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="pabot_ros2_control">
+        
+        <ros2_control name="PabotGazeboSystem" type="system">   <!--ros2_control 控制接口定义-->
+            <hardware>
+                <!--使用官方插件 gazebo_ros2_control 来与 Gazebo 模拟物理系统通信-->  
+                <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+            </hardware>
+
+            <joint name="left_wheel_joint">
+                <command_interface name="velocity">
+                    <param name="min">-1</param>
+                    <param name="max">1</param>
+                </command_interface>
+                <command_interface name="effort">
+                    <param name="min">-0.1</param>
+                    <param name="max">0.1</param>
+                </command_interface>
+                <state_interface name="position" />     <!--读取当前角度或位置-->
+                <state_interface name="velocity" />     <!--读取当前转速-->
+                <state_interface name="effort" />       <!--读取当前受力或力矩-->
+            </joint>
+
+            <joint name="right_wheel_joint">
+                <command_interface name="velocity">
+                    <param name="min">-1</param>
+                    <param name="max">1</param>
+                </command_interface>
+                <command_interface name="effort">
+                    <param name="min">-0.1</param>
+                    <param name="max">0.1</param>
+                </command_interface>
+                <state_interface name="position" />
+                <state_interface name="velocity" />
+                <state_interface name="effort" />
+            </joint>
+
+        </ros2_control>
+
+        <gazebo>
+        <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">    <!--Gazebo 插件桥接-->
+            <parameters>$(find patrol_robot_description)/config/pabot_ros2_controller.yaml</parameters>     <!--定义具体控制器-->
+            <ros>
+                <remapping>/pabot_diff_drive_controller/odom:=/odom</remapping>     <!--让导航包使用标准 /odom-->
+                <remapping>/pabot_diff_drive_controller/cmd_vel_unstamped:=/cmd_vel</remapping>     <!--兼容 nav2 的速度控制命令-->
+            </ros>
+        </plugin>
+        </gazebo>
+
+    </xacro:macro>
+</robot>
