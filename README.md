@@ -41,7 +41,7 @@ The development environment for this project is as follows:
 
 *   **Operating System**： Ubunt22.04
 *   **ROS Version**：ROS 2 Humble
-*   **Core Languages**：Python, C++
+*   **Core Languages**：Python
 
 ### 2.1 Installation
 
