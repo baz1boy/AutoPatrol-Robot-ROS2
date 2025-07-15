@@ -1,11 +1,11 @@
 import launch
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 import launch_ros  
-import launch.launch_description_sources
+import launch_ros.parameter_descriptions
 from ament_index_python.packages import get_package_share_directory
 import os
-import launch_ros.parameter_descriptions
 
 def generate_launch_description():
 
@@ -18,11 +18,12 @@ def generate_launch_description():
     action_declare_arg_mode_path = DeclareLaunchArgument(
         name='model', 
         default_value=str(default_xacro_path), 
-        description='加载的模型文件路径'
+        description='加载的模型文件路径/Load model path'
     )
     # 通过文件路径，获取内容，并转换成参数值对象，以供传入robot_state_publisher
     xacro_model_file = launch.substitutions.Command(['xacro ', LaunchConfiguration('model')])
 
+    # 加载机器人模型
     robot_description_value = launch_ros.parameter_descriptions.ParameterValue(xacro_model_file, value_type=str)
     action_robot_state_publisher = launch_ros.actions.Node(
         package='robot_state_publisher',
@@ -30,20 +31,24 @@ def generate_launch_description():
         parameters=[{'robot_description':robot_description_value}]
     )
 
+    # 启动Gazebo, 嵌套launch，因为不是一个node，而是多个组件
     action_launch_gazebo = launch.actions.IncludeLaunchDescription(
-        launch.launch_description_sources.PythonLaunchDescriptionSource
-        ([get_package_share_directory('gazebo_ros'), '/launch', '/gazebo.launch.py']),
-        launch_arguments=[('world', default_gazebo_world_path), ('verbose', 'true')]
+        PythonLaunchDescriptionSource([get_package_share_directory('gazebo_ros'), '/launch', '/gazebo.launch.py']),
+        launch_arguments=[
+            ('world', default_gazebo_world_path), 
+            ('verbose', 'true')
+        ]
     )
 
-    # 请求 Gazebo 加载机器人
+    # 请求 Gazebo 实体化机器人
     action_spawn_entity = launch_ros.actions.Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
         arguments=['-topic','/robot_description', '-entity', 'pabot']
     )
 
-     # 加载并激活 robot_joint_state_broadcaster 控制器
+    # ros2_control yaml配置文件中定义了关节广播控制器，这里通过命令行启用
+    # 加载并激活 robot_joint_state_broadcaster 控制器
     action_load_joint_state_controller = launch.actions.ExecuteProcess(
         cmd='ros2 control load_controller pabot_joint_state_broadcaster --set-state active'.split(' '),
         output='screen'

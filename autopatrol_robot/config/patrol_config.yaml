@@ -1,0 +1,15 @@
+/patrol_node:   # 必须与你启动时用的节点名一致
+  ros__parameters:
+    initial_point: [0.0, 0.0, 0.0]  # x,y,yaw
+
+    target_points: [
+      1.0, 2.0, 3.14,
+      -4.5, 1.5, 1.57,
+      -3.0, -4.3, 0.0,
+      -8.0, -5.0, 1.57,
+      0.0, 0.0, 0.0,
+    ]
+
+    use_sim_time: false
+
+    img_save_path: "/home/bazi/patrol_robot/robot_ws/src/autopatrol_robot/images"
