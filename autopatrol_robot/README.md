@@ -37,7 +37,7 @@ nav2_custom_controller  #自定义控制算法</pre>
 
 本项目开发平台信息如下：
 
-*   **系统版本**： Ubunt22.04
+*   **系统版本**： Ubuntu 22.04
 *   **ROS 版本**：ROS 2 Humble
 *   **核心语言**：Python, C++
 
