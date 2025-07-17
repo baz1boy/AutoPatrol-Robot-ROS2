@@ -39,7 +39,7 @@ This project includes the following core features:
 
 The development environment for this project is as follows:
 
-*   **Operating System**： Ubunt22.04
+*   **Operating System**： Ubuntu 22.04
 *   **ROS Version**：ROS 2 Humble
 *   **Core Languages**：Python
 
