@@ -60,7 +60,7 @@ sudo apt install ros-$ROS_DISTRO-robot-state-publisher
 sudo apt install ros-$ROS_DISTRO-joint-state-publisher 
 sudo apt install ros-$ROS_DISTRO-gazebo-ros-pkgs 
 sudo apt install ros-$ROS_DISTRO-ros2-controllers
-sudo apt install ros-humble-ros2-control 
+sudo apt install ros-$ROS_DISTRO-ros2-control 
 sudo apt install ros-$ROS_DISTRO-xacro
 ```
 
