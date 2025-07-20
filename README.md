@@ -55,6 +55,7 @@ sudo apt install ros-$ROS_DISTRO-slam-toolbox
 
 2. **Install simulation-related packages**
 ```bash
+sudo apt install gazebo
 sudo apt install ros-$ROS_DISTRO-robot-state-publisher
 sudo apt install ros-$ROS_DISTRO-joint-state-publisher 
 sudo apt install ros-$ROS_DISTRO-gazebo-ros-pkgs 
