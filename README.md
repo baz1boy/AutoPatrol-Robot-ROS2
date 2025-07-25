@@ -1,6 +1,10 @@
 # Pabot - An autonomous patrol robot based on ROS 2 and Navigation 2 (EN)
 
-This is an autonomous patrol robot project based on ROS 2 Humble and Navigation 2. After a one-click launch of the simulation environment, navigation system, and application, the robot can autonomously patrol between predefined waypoints on a mapped environment. Upon reaching each target point, the robot first plays a voice message announcing the location, then captures a real-time image using its camera and saves it locally with voice announcement.
+This is an autonomous patrol robot project based on ROS 2 Humble and Navigation 2, it runs in the simulation environment of **Gazebo**. 
+
+If you want to view a different version for **Isaac Sim 4.5**, please go to: ([https://github.com/baz1boy/AutoPatrol-Robot-ROS2](https://github.com/baz1boy/AutoPatrol-ROS2-IsaacSim))
+
+After a one-click launch of the simulation environment, navigation system, and application, the robot can autonomously patrol between predefined waypoints on a mapped environment. Upon reaching each target point, the robot first plays a voice message announcing the location, then captures a real-time image using its camera and saves it locally with voice announcement.
 
 This project aims to provide a complete, modular, and easily extensible ROS 2 application example, covering core concepts such as simulation, navigation, node communication, parameter configuration, and multi-node integrated launch.
 
