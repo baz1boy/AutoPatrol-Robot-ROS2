@@ -4,7 +4,7 @@ This is an autonomous patrol robot project based on ROS 2 Humble and Navigation 
 
 This project aims to provide a complete, modular, and easily extensible ROS 2 application example, covering core concepts such as simulation, navigation, node communication, parameter configuration, and multi-node integrated launch.
 
-**Demo Video**:  [![YouTube](https://img.shields.io/badge/YouTube-Watch-red?logo=youtube&logoColor=white)](https://youtu.be/tghYcGstC8o)
+**Demo Video**:  [![YouTube](https://img.shields.io/badge/YouTube-Watch-red?logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=tghYcGstC8o&list=PLG0yEiqorTkghIX3G7IwC2tOvI9JmIdd0&index=1)
 
 ## 1. Project Introduction
 
@@ -132,4 +132,4 @@ ros2 launch autopatrol_robot autopatrol.launch.py
 
 ## 3. Author
 
-- [bazi](https://youtu.be/tghYcGstC8o)
+- [bazi](https://www.youtube.com/watch?v=nPYWb86pzSc&list=PLG0yEiqorTkghIX3G7IwC2tOvI9JmIdd0&index=2)
