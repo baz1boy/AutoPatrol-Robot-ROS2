@@ -1,4 +1,4 @@
-# Pabot - An autonomous patrol robot based on ROS 2 and Navigation 2 (EN)
+# Pabot - An autonomous patrol robot based on ROS 2 and Navigation 2 (Gazebo)
 
 This is an autonomous patrol robot project based on ROS 2 Humble and Navigation 2, it runs in the simulation environment of **Gazebo**. 
 
