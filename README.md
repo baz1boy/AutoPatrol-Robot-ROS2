@@ -86,7 +86,7 @@ source install/setup.bash
 ```
 
 **Observe the robot**:
-After launch, the robot will automatically initialize and then begin navigating sequentially to the waypoints defined in the `patrol_robot/config/patrol_config.yaml` file. Before and after reaching each point, you will hear a voice prompt. Upon arrival at each target point, the robot will take a photo and announce the event via speech. The newly captured images can be found in the `autopatrol_robot/images/ directory`.
+After launch, the robot will automatically initialize and then begin navigating sequentially to the waypoints defined in the `patrol_robot/config/patrol_config.yaml` file. Before and after reaching each point, you will hear a voice prompt. Upon arrival at each target point, the robot will take a photo and announce the event via speech. The newly captured images can be found in the `autopatrol_robot/images/` directory.
 
 #### 2.2.1 One-Click Run
 
