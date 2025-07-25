@@ -8,7 +8,15 @@ After a one-click launch of the simulation environment, navigation system, and a
 
 This project aims to provide a complete, modular, and easily extensible ROS 2 application example, covering core concepts such as simulation, navigation, node communication, parameter configuration, and multi-node integrated launch.
 
-**Demo Video**:  [![YouTube](https://img.shields.io/badge/YouTube-Watch-red?logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=tghYcGstC8o&list=PLG0yEiqorTkghIX3G7IwC2tOvI9JmIdd0&index=1)
+### **Demo Video**:[![YouTube](https://img.shields.io/badge/YouTube-Watch-red?logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=tghYcGstC8o&list=PLG0yEiqorTkghIX3G7IwC2tOvI9JmIdd0&index=1)
+
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=tghYcGstC8o&list=PLG0yEiqorTkghIX3G7IwC2tOvI9JmIdd0&index=1">
+    <img src="https://img.youtube.com/vi/tghYcGstC8o/0.jpg" width="480">
+    <br>
+    🎥 Click to watch the demo video
+  </a>
+</div>
 
 ## 1. Project Introduction
 
